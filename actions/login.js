@@ -3,7 +3,7 @@ import config from '../config'
 import querySelectors from '../querySelectors/login'
 
 Nightmare.action('login', function(done) {
-  this.log('Logging in')
+  this.log(`Logging in with email: ${config.email}`)
     .goto(config.env.hostingURL)
     .wait(querySelectors.signUp)
     .click(querySelectors.signUp) // click signup
