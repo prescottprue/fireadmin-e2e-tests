@@ -1,0 +1,30 @@
+dist: trusty
+
+sudo: false
+
+language: node_js
+
+node_js:
+  - 10
+
+notifications:
+  email:
+    on_failure: change
+    on_success: change
+
+branches:
+  only:
+    - master
+
+env:
+  # Enable colors within logs
+  - FORCE_COLOR=true
+
+cache:
+  bundler: true
+  directories:
+    - node_modules # NPM packages
+
+script:
+  - npm run lint
+  - npm run build
