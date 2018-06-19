@@ -16,7 +16,7 @@ function runMocha() {
   const mocha = new Mocha({
     useColors: true,
     timeout: 300000,
-    // reporter: 'server/firebase-reporter.js', // custom reporter
+    reporter: 'server/firebase-reporter.js', // custom reporter
     // grep: /area 1/, // only run tests containing certain
     nightmare: {
       switches: {

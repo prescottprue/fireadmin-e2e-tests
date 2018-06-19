@@ -4,8 +4,6 @@
   "description": "End to end tests for fireadmin.",
   "main": "index.js",
   "scripts": {
-    "test:stage": "mocha test/**/*.spec.js -- --env='stage'",
-    "test:local": "mocha test/**/*.spec.js -- --env='local'",
     "lint": "eslint -c .eslintrc test actions querySelectors",
     "start": "babel-node server/index.js",
     "prod": "node index.js",
