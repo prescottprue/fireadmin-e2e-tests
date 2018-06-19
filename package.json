@@ -7,24 +7,29 @@
     "test:stage": "mocha test/**/*.spec.js -- --env='stage'",
     "test:local": "mocha test/**/*.spec.js -- --env='local'",
     "lint": "eslint -c .eslintrc test actions querySelectors",
+    "start": "cross-env APP_ENV=stage nodemon src/index.js --exec babel-node",
+    "prod": "node index.js",
     "lint:fix": "npm run lint -- --fix",
     "prepush": "npm run lint"
   },
   "author": "prescottprue",
   "license": "MIT",
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.24.1",
     "babel-plugin-lodash": "^3.2.11",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "chai": "^4.1.2",
+    "cross-env": "^5.2.0",
     "electron": "^2.0.2",
     "firebase-admin": "^5.12.1",
     "mocha": "^5.2.0",
     "moment": "^2.21.0",
     "nightmare": "^3.0.1",
     "nightmare-upload": "^0.1.1",
-    "nightmare-window-manager": "0.2.2"
+    "nightmare-window-manager": "0.2.2",
+    "nodemon": "^1.17.5"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",

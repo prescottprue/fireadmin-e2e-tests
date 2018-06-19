@@ -7,17 +7,6 @@ const envs = {
   }
 };
 
-let args = process.argv
-
-function currentEnvFromArgs()  {
-  const envArg = args.find((arg) => arg.includes('--env'))
-  if (!envArg) {
-    console.log('Please provide env')
-    process.exit(1)
-  }
-  return envs[envArg.replace("--env=", '').replace("'", '')]
-}
-
 export default {
   email: process.env.TEST_EMAIL,
   password: process.env.TEST_PASSWORD,
@@ -31,5 +20,5 @@ export default {
     logging: true // This will print all console messages and errors to the console, as well as print
     // all messages that are passed through the custom Nightmare.log(message) method.
   },
-  env: currentEnvFromArgs()
+  env: envs[process.env.APP_ENV] || envs.local
 };
