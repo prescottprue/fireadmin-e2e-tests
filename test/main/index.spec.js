@@ -1,28 +1,24 @@
-describe('Verify main home page functionality', () => {
+describe('Core Functionality', () => {
   before(async function() {
-    this.retries(3)
-    try {
-      await nightmare.activateLogging().login()
-    } catch (err) {
-      console.log('error logging in:', err.message || err)
-    }
+    await nightmare.activateLogging().login()
   })
 
   after(async () => {
     await nightmare.end()
   })
 
-  it('login brings user to project page', async () => {
-    try {
+  describe('Projects Page', () => {
+    it('successful login brings user to projects page with visible new project tile', async () => {
+      const newProjectTileSelector = '#new-project-tile'
       const numLinks = await nightmare
-      .log('Verifying new tile on project page')
-      .wait('#new-project-tile')
-      .evaluate(links => {
-        return !!document.querySelector(links)
-      }, '#new-project-tile')
+        .log('Verifying new tile on project page')
+        .wait(newProjectTileSelector)
+        .evaluate(tileSelector => {
+          return !!document.querySelector(tileSelector)
+        }, newProjectTileSelector)
+
+      // Confirm that new project tile exists
       expect(numLinks).to.equal(true)
-    } catch(err) {
-      console.log('Test threw:', err.message)
-    }
+    })
   })
 })
