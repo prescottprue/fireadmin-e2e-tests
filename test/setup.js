@@ -5,9 +5,6 @@ import '../actions/inputs'
 import '../actions/login'
 import '../actions/log'
 
-require('nightmare-upload')(Nightmare)
-require('nightmare-window-manager')(Nightmare)
-
 const nightmare = Nightmare(config.nightmare)
 
 global.chai = chai

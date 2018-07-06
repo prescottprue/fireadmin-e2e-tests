@@ -12,8 +12,10 @@ let args = process.argv
 function currentEnvFromArgs()  {
   const envArg = args.find((arg) => arg.includes('--env'))
   if (!envArg) {
-    console.log('Please provide env')
-    process.exit(1)
+    const fallbackEnv = process.env.TEST_ENV || 'stage'
+    console.log(`Env not provided defaulting to ${fallbackEnv}`)
+    const env = envs[fallbackEnv]
+    return env || envs.stage
   }
   return envs[envArg.replace("--env=", '').replace("'", '')]
 }
