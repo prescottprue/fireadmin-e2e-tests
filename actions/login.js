@@ -5,8 +5,8 @@ import querySelectors from '../querySelectors/login'
 Nightmare.action('login', function(done) {
   this.log(`Logging in with email: ${config.email}`)
     .goto(config.env.hostingURL)
-    .wait(querySelectors.signUp)
-    .click(querySelectors.signUp) // click signup
+    .wait(querySelectors.signIn)
+    .click(querySelectors.signIn) // click signup
     .wait(querySelectors.googleAuthButton)
     .click(querySelectors.googleAuthButton) // click google auth button
     .wait(2000)
@@ -21,6 +21,6 @@ Nightmare.action('login', function(done) {
     .wait(2000)
     .wait(querySelectors.passwordNextButton)
     .click(querySelectors.passwordNextButton)
-    .log('Log in complete. Intiating wait for specified app load time.')
+    .log('Log in complete.')
     .then(done)
 })

@@ -1,6 +1,6 @@
 export default {
   googleAuthButton: '#google-auth-button',
-  signUp: '#sign-in',
+  signIn: '#sign-in',
   emailField: '#identifierId',
   nextButton: '#identifierNext',
   passwordField: '#password',
